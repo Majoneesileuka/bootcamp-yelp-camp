@@ -18,10 +18,10 @@ var commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
 // Connect mongodb and use bodyparser and set ejs as view enginer
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v7", {
+mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
+  useFindAndModify: false
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
